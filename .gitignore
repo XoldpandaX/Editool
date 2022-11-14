@@ -12,6 +12,14 @@
 /build
 
 # misc
+.vscode
+.idea
+*.iml
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 .DS_Store
 .env.local
 .env.development.local
