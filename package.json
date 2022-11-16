@@ -10,7 +10,9 @@
     "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx,json}'",
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
     "prepare": "husky install",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "gen-cmp": "npx generate-react-cli component",
+    "gen-page": "npx generate-react-cli component --type=page"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
@@ -26,6 +28,7 @@
     "antd": "^4.24.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",
     "typescript": "^4.8.4",
     "web-vitals": "^2.1.4"
@@ -45,9 +48,11 @@
     "eslint-plugin-react": "^7.31.10",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-sonarjs": "^0.16.0",
+    "generate-react-cli": "^8.0.1",
     "husky": "^8.0.2",
     "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1"
+    "prettier": "^2.7.1",
+    "sass": "^1.56.1"
   },
   "eslintConfig": {
     "extends": [

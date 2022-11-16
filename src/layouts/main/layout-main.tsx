@@ -10,9 +10,10 @@ import {
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Layout, Menu } from 'antd';
+import { Outlet } from 'react-router-dom';
 import React from 'react';
 
-const { Header, Content, Footer, Sider } = Layout;
+const { Header, Content, Sider } = Layout;
 
 const items: MenuProps['items'] = [
   UserOutlined,
@@ -62,19 +63,9 @@ export const LayoutMain: React.FC = () => (
           className="site-layout-background"
           style={{ padding: 24, textAlign: 'center' }}
         >
-          <p>long content</p>
-          {
-            // indicates very long content
-            Array.from({ length: 100 }, (_, index) => (
-              <React.Fragment key={index}>
-                {index % 20 === 0 && index ? 'more' : '...'}
-                <br />
-              </React.Fragment>
-            ))
-          }
+          <Outlet />
         </div>
       </Content>
-      <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
     </Layout>
   </Layout>
 );
