@@ -41,6 +41,7 @@ export const LayoutMain: React.FC = () => (
         top: 0,
         bottom: 0,
       }}
+      collapsible
     >
       <div className="logo" />
       <Menu
@@ -58,7 +59,7 @@ export const LayoutMain: React.FC = () => (
         className="site-layout-background"
         style={{ padding: 0, position: 'fixed', zIndex: 1, width: '100%' }}
       />
-      <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
+      <Content style={{ margin: '64px 16px 0', overflow: 'initial' }}>
         <div
           className="site-layout-background"
           style={{ padding: 24, textAlign: 'center' }}
