@@ -43,6 +43,7 @@
     "react/jsx-uses-react": "off", // no need to import React starts from React v.17.0 version
     "react/react-in-jsx-scope": "off", // no need to import React starts from React v.17.0 version
     "import/prefer-default-export": "off",
-    "no-console": "off"
+    "no-console": "off",
+    "import/extensions": "off"
   }
 }
