@@ -26,7 +26,10 @@ export const Editor = () => {
       ref={refEditor}
     >
       {editor ? <EditorActionMenu editor={editor} /> : null}
-      <EditorContent editor={editor} />
+      <EditorContent
+        className="notely-editor__content"
+        editor={editor}
+      />
     </div>
   );
 };

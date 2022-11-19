@@ -1,3 +1,4 @@
+import { FC, ReactNode, createElement } from 'react';
 import {
   AppstoreOutlined,
   BarChartOutlined,
@@ -10,8 +11,8 @@ import {
 } from '@ant-design/icons';
 import type { MenuProps } from 'antd';
 import { Layout, Menu } from 'antd';
-import { Outlet } from 'react-router-dom';
-import React from 'react';
+
+import './layout-main.scss';
 
 const { Header, Content, Sider } = Layout;
 
@@ -26,24 +27,23 @@ const items: MenuProps['items'] = [
   ShopOutlined,
 ].map((icon, index) => ({
   key: String(index + 1),
-  icon: React.createElement(icon),
+  icon: createElement(icon),
   label: `nav ${index + 1}`,
 }));
 
-export const LayoutMain: React.FC = () => (
-  <Layout hasSider>
+type LayoutMainProps = {
+  children: ReactNode;
+};
+
+export const LayoutMain: FC<LayoutMainProps> = ({ children }) => (
+  <Layout
+    className="layout-main"
+    hasSider
+  >
     <Sider
-      style={{
-        overflow: 'auto',
-        height: '100vh',
-        position: 'fixed',
-        left: 0,
-        top: 0,
-        bottom: 0,
-      }}
+      className="layout-main__sider"
       collapsible
     >
-      <div className="logo" />
       <Menu
         theme="dark"
         mode="inline"
@@ -51,21 +51,13 @@ export const LayoutMain: React.FC = () => (
         items={items}
       />
     </Sider>
-    <Layout
-      className="site-layout"
-      style={{ marginLeft: 200 }}
-    >
-      <Header
-        className="site-layout-background"
-        style={{ padding: 0, position: 'fixed', zIndex: 1, width: '100%' }}
-      />
-      <Content style={{ margin: '64px 16px 0', overflow: 'initial' }}>
-        <div
-          className="site-layout-background"
-          style={{ padding: 24, textAlign: 'center' }}
-        >
-          <Outlet />
-        </div>
+    <Layout style={{ marginLeft: 200 }}>
+      <Header className="layout-main__content-header site-layout-background" />
+      <Content
+        className="layout-main__content"
+        style={{ padding: '64px 16px 0', overflow: 'initial' }}
+      >
+        {children}
       </Content>
     </Layout>
   </Layout>
