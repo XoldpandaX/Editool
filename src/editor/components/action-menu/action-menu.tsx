@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { BubbleMenu, Editor } from '@tiptap/react';
 import { ICommandManager, TippyOptions } from '@/editor/types';
 
-import './editor-action-menu.scss';
+import './action-menu.scss';
 
 type EditorActionMenuProps = {
   editor: Editor;
@@ -10,9 +10,9 @@ type EditorActionMenuProps = {
   options: TippyOptions;
 };
 
-const EditorActionMenu: FC<EditorActionMenuProps> = ({ editor, options, commandManager }) => (
+const ActionMenu: FC<EditorActionMenuProps> = ({ editor, options, commandManager }) => (
   <BubbleMenu
-    className="editor-action-menu"
+    className="action-menu"
     editor={editor}
     tippyOptions={options}
     updateDelay={350}
@@ -38,4 +38,4 @@ const EditorActionMenu: FC<EditorActionMenuProps> = ({ editor, options, commandM
   </BubbleMenu>
 );
 
-export default EditorActionMenu;
+export default ActionMenu;

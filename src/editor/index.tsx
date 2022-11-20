@@ -2,7 +2,7 @@ import { createRef, RefObject, KeyboardEvent } from 'react';
 import { useEditor, EditorContent } from '@tiptap/react';
 import { CommandManager } from './services/command-manager';
 import editorConfig from './editor-config';
-import EditorActionMenu from './components/editor-action-menu/editor-action-menu';
+import ActionMenu from './components/action-menu/action-menu';
 
 import './index.scss';
 
@@ -32,7 +32,7 @@ export const Editor = () => {
       ref={refEditor}
     >
       {editor ? (
-        <EditorActionMenu
+        <ActionMenu
           editor={editor}
           options={editorConfig.tippyOptions}
           commandManager={commandManager}
