@@ -1,6 +1,6 @@
 import { Editor } from '@tiptap/react';
 import { isNil } from 'remeda';
-import { Command, ICommandManager } from '../types';
+import { Command, EditingCommand, ICommandManager } from '../types';
 
 export class CommandManager implements ICommandManager {
   private static readonly stateCommands = ['blur'];
@@ -14,7 +14,10 @@ export class CommandManager implements ICommandManager {
     else this.editor.chain().focus()[command]().run();
   };
 
-  public isActiveCommand = (command: Command): boolean => (isNil(this.editor) ? false : this.editor.isActive(command));
+  public isActive = (command: EditingCommand): boolean => {
+    const cmd = command.split('toggle')[1].toLowerCase(); // toggleBold -> bold
+    return isNil(this.editor) ? false : this.editor.isActive(cmd);
+  };
 
   private throwAnError(command: Command): never {
     throw new Error(`Cannot execute ${command} command on editor that is ${this.editor} and not exists`);

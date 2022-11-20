@@ -7,5 +7,5 @@ export type TippyOptions = Required<Pick<Props, 'duration' | 'placement'>>;
 
 export interface ICommandManager {
   exec(command: Command): void;
-  isActiveCommand(command: Command): boolean;
+  isActive(command: Command): boolean;
 }
