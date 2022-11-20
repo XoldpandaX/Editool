@@ -1,21 +1,21 @@
 import { FC } from 'react';
 import { BubbleMenu, Editor } from '@tiptap/react';
-import { ICommandManager } from '@/editor/types';
+import { ICommandManager, TippyOptions } from '@/editor/types';
 
 import './editor-action-menu.scss';
 
 type EditorActionMenuProps = {
   editor: Editor;
   commandManager: ICommandManager;
+  options: TippyOptions;
 };
 
-const EditorActionMenu: FC<EditorActionMenuProps> = ({ editor, commandManager }) => (
+const EditorActionMenu: FC<EditorActionMenuProps> = ({ editor, options, commandManager }) => (
   <BubbleMenu
     className="editor-action-menu"
     editor={editor}
-    tippyOptions={{ duration: 100 }}
-    updateDelay={1000}
-    shouldShow={() => true}
+    tippyOptions={options}
+    updateDelay={350}
   >
     <button
       onClick={() => commandManager.exec('toggleBold')}

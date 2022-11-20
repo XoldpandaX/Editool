@@ -15,9 +15,8 @@ export const Editor = () => {
     onUpdate: ({ editor: ed }) => {
       console.info(ed.getJSON());
     },
-    onSelectionUpdate: ({ editor: ed }) => {
+    onSelectionUpdate: () => {
       console.info('onSelectionUpdate');
-      console.info(ed.view.state.selection.empty);
     },
   });
   const commandManager = new CommandManager(editor);
@@ -35,6 +34,7 @@ export const Editor = () => {
       {editor ? (
         <EditorActionMenu
           editor={editor}
+          options={editorConfig.tippyOptions}
           commandManager={commandManager}
         />
       ) : null}
