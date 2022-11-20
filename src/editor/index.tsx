@@ -34,6 +34,7 @@ export const Editor = () => {
       {editor ? (
         <EditorActionMenu
           editor={editor}
+          options={editorConfig.tippyOptions}
           commandManager={commandManager}
         />
       ) : null}
