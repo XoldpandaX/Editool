@@ -15,9 +15,8 @@ export const Editor = () => {
     onUpdate: ({ editor: ed }) => {
       console.info(ed.getJSON());
     },
-    onSelectionUpdate: ({ editor: ed }) => {
+    onSelectionUpdate: () => {
       console.info('onSelectionUpdate');
-      console.info(ed.view.state.selection.empty);
     },
   });
   const commandManager = new CommandManager(editor);
