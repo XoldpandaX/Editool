@@ -1,4 +1,4 @@
-import React, { FC, ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 import { blue } from '@ant-design/colors';
 import { Button } from 'antd';
 import { NPopover } from '@/ui-kit';
