@@ -15,13 +15,22 @@ type Button = {
   id: string;
   children: JSX.Element;
   command: EditingCommand;
+  tooltip: {
+    title: string;
+    description: string;
+  };
 };
 
 const buttons: Button[] = [
-  { id: 'B', children: <b>B</b>, command: 'toggleBold' },
-  { id: 'I', children: <i>I</i>, command: 'toggleItalic' },
-  { id: 'U', children: <u>U</u>, command: 'toggleUnderline' },
-  { id: 'S', children: <s>S</s>, command: 'toggleStrike' },
+  { id: 'B', children: <b>B</b>, command: 'toggleBold', tooltip: { title: 'Bold', description: 'Ctrl+B' } },
+  { id: 'I', children: <i>I</i>, command: 'toggleItalic', tooltip: { title: 'Italicize', description: 'Ctrl+I' } },
+  { id: 'U', children: <u>U</u>, command: 'toggleUnderline', tooltip: { title: 'Underline', description: 'Ctrl+U' } },
+  {
+    id: 'S',
+    children: <s>S</s>,
+    command: 'toggleStrike',
+    tooltip: { title: 'Strike-through', description: 'Ctrl+Shift+X' },
+  },
 ];
 
 const ActionMenu: FC<EditorActionMenuProps> = ({ editor, options, commandManager }) => (
@@ -35,6 +44,7 @@ const ActionMenu: FC<EditorActionMenuProps> = ({ editor, options, commandManager
       <ActionMenuBtn
         key={button.id}
         isActive={commandManager.isActive(button.command)}
+        tooltip={button.tooltip}
         onClick={() => commandManager.exec(button.command)}
       >
         {button.children}
