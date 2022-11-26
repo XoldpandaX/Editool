@@ -11,6 +11,7 @@
     "format": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
     "prepare": "husky install",
     "eject": "react-scripts eject",
+    "invalidate": "rm -rf node_modules && npm cache clean --force && npm i",
     "gen-cmp": "npx generate-react-cli component",
     "gen-page": "npx generate-react-cli component --type=page"
   },
@@ -47,7 +48,7 @@
     "@types/lodash.debounce": "^4.0.7",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "@typescript-eslint/parser": "^5.43.0",
-    "craco-less": "^2.0.0",
+    "craco-less": "^2.1.0-alpha.0",
     "eslint": "^8.27.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^17.0.0",
